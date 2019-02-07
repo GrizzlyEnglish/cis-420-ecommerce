@@ -1,0 +1,19 @@
+{
+  "name": "cis-420-ecommerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sk.app.js",
+  "dependencies": {
+    "bulma": "^0.7.3",
+    "express": "^4.16.4",
+    "path": "^0.12.7",
+    "tedious": "^4.1.3",
+    "vue": "^2.6.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

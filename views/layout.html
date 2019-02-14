@@ -12,9 +12,14 @@
 
         <div id="app">
             <!-- Component will be injected here based on route -->
+
+            <sk-index v-if="route == ''"></sk-index>
+
         </div>
 
         <!-- Import component scripts here -->
+        <script type="text/javascript" src="sk/components/app.js"></script>
+        <script type="text/javascript" src="sk/components/index.app.js"></script>
     </body>
 
 

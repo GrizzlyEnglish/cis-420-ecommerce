@@ -2,8 +2,12 @@ var gulp = require('gulp');
 var del = require('del');
 var exec = require('child_process').exec;
 
-const webpackages = {
-    "vue": "dist/vue.min.js"
+const assets = {
+    "scripts": {
+        "vue": "dist/vue.js"
+    },
+    "styles": {},
+    "fonts": {}
 };
 
 gulp.task('clean', function(){
@@ -11,15 +15,20 @@ gulp.task('clean', function(){
 });
 
 gulp.task("dist_lib", async function() {
-    for (var package in webpackages) {
-        console.log("Moving package: " + package);
-        gulp.src("node_modules/" + package + "/" + webpackages[package])
-            .pipe(gulp.dest("public/"));
+    for (var assetType in assets) {
+        console.log("Moving " + assetType);
+        for (var package in assets[assetType]) {
+            console.log("Moving package: " + assets[assetType][package] + " to /" + assetType);
+            gulp.src("node_modules/" + package + "/" + assets[assetType][package])
+                .pipe(gulp.dest("public/" + assetType));
+        }
     }
 });
 
 gulp.task('node-server', function() {
-    exec('node ./sk.app.js').stdout.pipe(process.stdout);
+    var server = exec('node ./sk.app.js');
+    server.stdout.pipe(process.stdout);
+    server.stderr.pipe(process.stderr);
 });
 
 gulp.task('start-server', gulp.series('clean', 'dist_lib', 'node-server'));

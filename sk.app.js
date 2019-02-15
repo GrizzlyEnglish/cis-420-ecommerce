@@ -36,6 +36,12 @@ function layout(req, res) {
     return res.sendFile(path.join(__dirname + '/views/layout.html'));
 };
 
+//404 Non defined routes
+app.get('*', function(req, res){
+    res.send('TODO: 404 page', 404);
+  });
+
+
 // Start the server and listen for requests
 app.listen(port, function () { 
     console.log(`Example app listening on port ${port}!`);

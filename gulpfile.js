@@ -1,12 +1,17 @@
 var gulp = require('gulp');
 var del = require('del');
 var exec = require('child_process').exec;
+var sass = require('gulp-sass');
+
+sass.compiler = require('node-sass');
 
 const assets = {
     "scripts": {
         "vue": "dist/vue.js"
     },
-    "styles": {},
+    "styles": {
+        "bulma": "bulma.sass"
+    },
     "fonts": {}
 };
 
@@ -19,8 +24,11 @@ gulp.task("dist_lib", async function() {
         console.log("Moving " + assetType);
         for (var package in assets[assetType]) {
             console.log("Moving package: " + assets[assetType][package] + " to /" + assetType);
-            gulp.src("node_modules/" + package + "/" + assets[assetType][package])
-                .pipe(gulp.dest("public/" + assetType));
+            var source = gulp.src("node_modules/" + package + "/" + assets[assetType][package]);
+            if (assetType === 'styles') {
+                source = source.pipe(sass().on('error', sass.logError));   
+            }
+            source.pipe(gulp.dest("public/" + assetType));
         }
     }
 });

@@ -19,6 +19,7 @@ app.use('/fonts', express.static(path.join(__dirname, '/public/fonts')));
 
 // App assets
 app.use('/sk', express.static(path.join(__dirname, '/views')));
+app.use('/sk-styles', express.static(path.join(__dirname, '/styles')));
 
 // Route for handling the data
 app.get('/data', function (req, res) {

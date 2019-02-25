@@ -1,0 +1,83 @@
+section {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* Index scope */
+.index-tile.has-link:hover {
+    cursor: pointer;
+}
+
+.index-tile .tile-content {
+    height: 250px;
+    z-index: 2;
+}
+
+.index-tile .tile-content > div:first-child {
+    padding-left: 25px;
+}
+
+.index-tile .tile-content > div:not(:first-child) {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    right: 50px;
+ }
+
+ .index-tile .tile-content > div:not(:first-child) > p{
+    float: right;
+    font-size: 0.725em;
+    color: grey;
+ }
+
+.index-tile h1 {
+    font-size: 2rem;
+    color: white;
+}
+
+.sk-index-banner {
+    margin: 50px 0;
+    height: 256px;
+    float: left;
+    width: 100%;
+    background-color: steelblue;
+}
+
+.sk-index-banner .image-container {
+    float: left;
+    width: 256px;
+    height: 256px;
+    z-index: 5;
+    margin-top: 25px;
+    margin-left: 5%;
+}
+
+.sk-index-banner .content {
+    height: 100%;
+    margin-left: 10%;
+    margin-top: 25px;
+}
+
+.sk-index-banner .content p {
+    color: white;
+    font-size: 1.25rem;
+    height: Calc(100% - 75px);
+    margin: 10px 0;
+}
+
+.sk-index-banner .content:before,
+.sk-index-banner .content:after {
+    display: block;
+    content: "";
+    border-top: .1rem solid #d5d5d5;
+    width: 100%;
+    margin: 0 1rem;
+    /* transform: translateY(-1rem); */
+}
+
+.sk-index-banner .banner-body {
+    float: left;
+    width: 65%;
+    text-align: center;
+    height: 100%;
+}

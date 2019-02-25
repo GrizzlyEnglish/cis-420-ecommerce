@@ -4,6 +4,7 @@
 
     <head>
         <link rel="stylesheet" type="text/css" href="sk-styles/sk.app.css" />
+        <link rel="stylesheet" type="text/css" href="/styles/bulma.css" />
         <script type="text/javascript" src="/scripts/vue.js"></script>
     </head>
 
@@ -11,18 +12,22 @@
     <body>
         <div id="app">
             <!-- Component will be injected here based on route -->
-
             <sk-index v-if="currentRoute == '/'"></sk-index>
             <sk-gallery v-if="currentRoute == '/gallery'"></sk-gallery>
             <sk-order v-if="currentRoute == '/order'"></sk-order>
             <sk-contact v-if="currentRoute == '/contact'"></sk-contact>
-
+            <sk-about v-if="currentRoute == '/about'"></sk-about>
         </div>
         <!-- Import component scripts here -->
-        <script type="text/javascript" src="sk/components/index.app.js"></script>
+        <!-- Components -->
+        <script type="text/javascript" src="sk/components/index/index.tile.js"></script>
+        <script type="text/javascript" src="sk/components/index/index.banner.js"></script>
+        <!-- Apps -->
+        <script type="text/javascript" src="sk/components/index/index.app.js"></script>
         <script type="text/javascript" src="sk/components/order.app.js"></script>
         <script type="text/javascript" src="sk/components/gallery.app.js"></script>
         <script type="text/javascript" src="sk/components/contact.app.js"></script>
+        <script type="text/javascript" src="sk/components/about.app.js"></script>
 
         <!-- Import the app last so it has all the components -->
         <script type="text/javascript" src="sk/components/app.js"></script>

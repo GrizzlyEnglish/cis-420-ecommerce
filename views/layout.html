@@ -6,17 +6,74 @@
         <link rel="stylesheet" type="text/css" href="sk-styles/sk.app.css" />
         <link rel="stylesheet" type="text/css" href="/styles/bulma.css" />
         <script type="text/javascript" src="/scripts/vue.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     </head>
 
 
     <body>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="">
+                    <i class="fas fa-birthday-cake"></i>
+                     Karolines Cakes
+                </a>
+
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item">
+                        Home
+                    </a>
+
+                    <a class="navbar-item">
+                        Gallery
+                    </a>
+                            <a class="navbar-item">
+                                Contact
+                            </a>
+
+                            <a class="navbar-item">
+                                About
+                            </a>
+                    <a class="navbar-item">
+                        Order
+                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="navbar-end">
+                            <div class="navbar-item">
+                                <div class="buttons">
+                                    <a class="button is-primary">
+                                        <strong>Sign up</strong>
+                                    </a>
+                                    <a class="button is-light">
+                                        Log in
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+</nav>
+
         <div id="app">
             <!-- Component will be injected here based on route -->
             <sk-index v-if="currentRoute == '/'"></sk-index>
             <sk-gallery v-if="currentRoute == '/gallery'"></sk-gallery>
             <sk-order v-if="currentRoute == '/order'"></sk-order>
             <sk-contact v-if="currentRoute == '/contact'"></sk-contact>
+<<<<<<< HEAD
             <sk-about v-if="currentRoute == '/about'"></sk-about>
+=======
+            
+>>>>>>> 54ea9fba34d9335f5b83e963ea693e5cf53a5212
         </div>
         <!-- Import component scripts here -->
         <!-- Components -->

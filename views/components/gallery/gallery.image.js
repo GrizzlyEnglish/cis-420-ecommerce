@@ -5,8 +5,8 @@ Vue.component('sk-gallery-image', {
     },
     template: `
         <div>
-            <figure class="image is-128x128"> 
-                <img v-bind:href="href"/>
+            <figure class="image is-256x256"> 
+                <img v-bind:src="href"/>
             </figure>
         </div>
     `

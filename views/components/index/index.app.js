@@ -7,13 +7,13 @@ Vue.component('sk-index', {
                 <!-- Top level links -->
                 <section class="tile is-ancestor">
                     <sk-index-tile tile-classes="is-vertical is-7" href="order"
-                        header="Order Information" dek="This will link to orders"></sk-index-tile>
+                        header="Order" dek="This will link to orders"></sk-index-tile>
                     <sk-index-tile tile-classes="is-vertical" href="gallery"
-                        header="Gallery Information" dek="This will link to galleries"></sk-index-tile>
+                        header="Gallery" dek="This will link to galleries"></sk-index-tile>
                 </section>
                 <section class="tile is-ancestor">
                     <sk-index-tile tile-classes="is-vertical" href="about"
-                        header="About Information" dek="This will link to about"></sk-index-tile>
+                        header="About" dek="This will link to about"></sk-index-tile>
                 </section>
             </div>
 

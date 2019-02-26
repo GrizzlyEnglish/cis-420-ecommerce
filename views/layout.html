@@ -1,102 +1,129 @@
 <!DOCTYPE html>
-
 <html>
 
-    <head>
-        <link rel="stylesheet" type="text/css" href="sk-styles/sk.app.css" />
-        <link rel="stylesheet" type="text/css" href="/styles/bulma.css" />
-        <script type="text/javascript" src="/scripts/vue.js"></script>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    </head>
-
-
-    <body>
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="">
-                    <i class="fas fa-birthday-cake"></i>
-                     Karolines Cakes
+<head>
+    <link rel="stylesheet" type="text/css" href="sk-styles/sk.app.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/bulma.css" />
+    <script type="text/javascript" src="/scripts/vue.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <figure class="">
+                    <img src="https://bulma.io/images/placeholders/256x256.png" />
+                </figure>
+            </div>
+            <div class="social-links">
+                <a>
+                    <i class="fab fa-instagram"></i>
                 </a>
-
-                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
+                <a>
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a>
+                    <i class="fab fa-pinterest"></i>
+                </a>
+                <a>
+                    <i class="far fa-envelope"></i>
                 </a>
             </div>
 
-            <div id="navbarBasicExample" class="navbar-menu">
-                <div class="navbar-start">
-                    <a class="navbar-item">
-                        Home
-                    </a>
-
-                    <a class="navbar-item">
-                        Gallery
-                    </a>
-                            <a class="navbar-item">
-                                Contact
-                            </a>
-
-                            <a class="navbar-item">
-                                About
-                            </a>
-                    <a class="navbar-item">
-                        Order
-                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="navbar-end">
-                            <div class="navbar-item">
-                                <div class="buttons">
-                                    <a class="button is-primary">
-                                        <strong>Sign up</strong>
-                                    </a>
-                                    <a class="button is-light">
-                                        Log in
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                    data-target="navbar">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+                <div id="navbar" class="navbar-menu">
+                    <div class="navbar-end">
+                        <a class="navbar-item">
+                            <span>Home</span>
+                        </a>
+                        
+                        <a class="navbar-item">
+                            <span>Gallery</span>
+                        </a>
+                        
+                        <a class="navbar-item">
+                            <span>Orders</span>
+                        </a>
+                        
+                        <a class="navbar-item">
+                            <span>Pricing</span>
+                        </a>
+                        
+                        <a class="navbar-item">
+                            <span>Contact</span>
+                        </a>
+                        
+                        <a class="navbar-item">
+                            <span>About</span>
+                        </a>
                     </div>
-</nav>
-
-        <div id="app">
-            <!-- Component will be injected here based on route -->
-            <sk-index v-if="currentRoute == '/'"></sk-index>
-            <sk-gallery v-if="currentRoute == '/gallery'"></sk-gallery>
-            <sk-order v-if="currentRoute == '/order'"></sk-order>
-            <sk-contact v-if="currentRoute == '/contact'"></sk-contact>
-            <sk-about v-if="currentRoute == '/about'"></sk-about>
-            
+                </div>
+            </nav>
         </div>
-        
-        <footer class="footer">
-            <div class="content has-text-centered">
-                <p><strong>Tuesday — Friday: 7:30am to 6pm <span>•</span> Saturday: 8am to 5pm <span>•</span> Sunday, Monday: Closed </strong></p>
-                <i class="fab fa-facebook-square"></i>
-                <a class="">Facebook</a>
-                <i class="fab fa-instagram"></i>
-                <a class="">Instagram</a>
-            </div>
-        </footer>
-        
-        <!-- Import component scripts here -->
-        <!-- Components -->
-        <script type="text/javascript" src="sk/components/index/index.tile.js"></script>
-        <script type="text/javascript" src="sk/components/index/index.banner.js"></script>
-        <!-- Apps -->
-        <script type="text/javascript" src="sk/components/index/index.app.js"></script>
-        <script type="text/javascript" src="sk/components/order.app.js"></script>
-        <script type="text/javascript" src="sk/components/gallery.app.js"></script>
-        <script type="text/javascript" src="sk/components/contact.app.js"></script>
-        <script type="text/javascript" src="sk/components/about.app.js"></script>
+    </header>
 
-        <!-- Import the app last so it has all the components -->
-        <script type="text/javascript" src="sk/components/app.js"></script>
-    </body>
+    <div id="app">
+        <!-- Component will be injected here based on route -->
+        <sk-index v-if="currentRoute == '/'"></sk-index>
+        <sk-gallery v-if="currentRoute == '/gallery'"></sk-gallery>
+        <sk-order v-if="currentRoute == '/order'"></sk-order>
+        <sk-contact v-if="currentRoute == '/contact'"></sk-contact>
+        <sk-about v-if="currentRoute == '/about'"></sk-about>
+    </div>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p><strong>Tuesday — Friday: 7:30am to 6pm <span>•</span> Saturday: 8am to 5pm <span>•</span> Sunday, Monday: Closed </strong></p>
+            <i class="fab fa-facebook-square"></i>
+            <a class="">Facebook</a>
+            <i class="fab fa-instagram"></i>
+            <a class="">Instagram</a>
+        </div>
+    </footer>
+    <!-- Import component scripts here -->
+    <!-- Components -->
+    <script type="text/javascript" src="sk/components/index/index.tile.js"></script>
+    <script type="text/javascript" src="sk/components/index/index.banner.js"></script>
+    <!-- Apps -->
+    <script type="text/javascript" src="sk/components/index/index.app.js"></script>
+    <script type="text/javascript" src="sk/components/order.app.js"></script>
+    <script type="text/javascript" src="sk/components/gallery.app.js"></script>
+    <script type="text/javascript" src="sk/components/contact.app.js"></script>
+    <script type="text/javascript" src="sk/components/about.app.js"></script>
+
+    <!-- Import the app last so it has all the components -->
+    <script type="text/javascript" src="sk/components/app.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Check if there are any navbar burgers
+            if ($navbarBurgers.length > 0) {
+
+                // Add a click event on each of them
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+
+                        // Get the target from the "data-target" attribute
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+
+                        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+
+                    });
+                });
+            }
+        });
+    </script>
+</body>
 
 
 </html>

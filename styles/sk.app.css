@@ -3,6 +3,44 @@ section {
     margin-bottom: 15px;
 }
 
+header {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+a {
+    color: #eb2c69 !important;
+}
+
+nav {
+    clear: both;
+}
+
+.logo {
+
+}
+
+.logo figure {
+    width: 128px;
+    height: 128px;
+    margin: 0 auto;
+}
+
+.social-links {
+    float: right;
+    padding-bottom: 15px;
+}
+
+.social-links a {
+    font-size: 1.125em;
+    /* margin: 0 15px; */
+    padding: 15px;
+}
+
+.social-links a:hover {
+    background-color: #fafafa;
+}
+
 /* Index scope */
 .index-tile.has-link:hover {
     cursor: pointer;
@@ -14,7 +52,29 @@ section {
 }
 
 .index-tile .tile-content > div:first-child {
-    padding-left: 25px;
+    float: right;
+}
+
+.index-tile .tile-content > div:first-child > h1 {
+    position: relative;
+    font-size: 1.75rem;
+    color: white;
+    z-index: 15;
+    padding-top: 5px; 
+    text-align: center;
+    min-width: 100px;
+}
+
+.index-tile .tile-content > div:first-child:after { 
+    content: " ";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #eb2c69; 
+    -moz-border-radius: 70px; 
+    -webkit-border-radius: 70px; 
+    border-radius: 70px;
+    top: 0;
 }
 
 .index-tile .tile-content > div:not(:first-child) {
@@ -29,11 +89,6 @@ section {
     font-size: 0.725em;
     color: grey;
  }
-
-.index-tile h1 {
-    font-size: 2rem;
-    color: white;
-}
 
 .sk-index-banner {
     margin: 50px 0;

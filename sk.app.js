@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const port = 3004;
+const port = 3011;
 
 //Base logger function
 app.use(function(req, res, next) {

@@ -23,7 +23,7 @@ app.use('/sk-styles', express.static(path.join(__dirname, '/styles')));
 
 // Route for handling the data
 app.get('/data', function (req, res) {
-    res.send('Fuck UK');
+    res.send('ToDo');
 });
 
 //Base routes

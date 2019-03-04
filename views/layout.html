@@ -40,27 +40,27 @@
                 </a>
                 <div id="navbar" class="navbar-menu">
                     <div class="navbar-end">
-                        <a href="/" class="navbar-item">
+                        <a class="navbar-item" href="/">
                             <span>Home</span>
                         </a>
                         
-                        <a href="/gallery" class="navbar-item">
+                        <a class="navbar-item" href="/gallery">
                             <span>Gallery</span>
                         </a>
                         
-                        <a href="/orders" class="navbar-item">
+                        <a class="navbar-item" href="/pricing">
+                            <span>Pricing</span>
+                        </a>
+
+                        <a class="navbar-item" href="/orders">
                             <span>Orders</span>
                         </a>
                         
-                        <a href="/pricing" class="navbar-item">
-                            <span>Pricing</span>
-                        </a>
-                        
-                        <a href="/contact" class="navbar-item">
+                        <a class="navbar-item" href="/contact">
                             <span>Contact</span>
                         </a>
                         
-                        <a href="/about" class="navbar-item">
+                        <a class="navbar-item" href="/about">
                             <span>About</span>
                         </a>
                     </div>
@@ -76,8 +76,8 @@
         <sk-order v-if="currentRoute == '/order'"></sk-order>
         <sk-contact v-if="currentRoute == '/contact'"></sk-contact>
         <sk-about v-if="currentRoute == '/about'"></sk-about>
-        <sk-about v-if="currentRoute == '/facebook'"></sk-about>
     </div>
+
     <footer class="footer">
         <div class="content has-text-centered">
             <p><strong>Tuesday — Friday: 7:30am to 6pm <span>•</span> Saturday: 8am to 5pm <span>•</span> Sunday, Monday: Closed </strong></p>
@@ -92,6 +92,7 @@
     <script type="text/javascript" src="sk/components/index/index.tile.js"></script>
     <script type="text/javascript" src="sk/components/index/index.banner.js"></script>
     <script type="text/javascript" src="sk/components/gallery/gallery.image.js"></script>
+    <script type="text/javascript" src="sk/components/gallery/gallery.lightbox.js"></script>
     <!-- Apps -->
     <script type="text/javascript" src="sk/components/index/index.app.js"></script>
     <script type="text/javascript" src="sk/components/order.app.js"></script>
@@ -104,7 +105,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-
+            // Get all "navbar-burger" elements
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
             // Check if there are any navbar burgers
             if ($navbarBurgers.length > 0) {
 

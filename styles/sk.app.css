@@ -16,6 +16,11 @@ nav {
     clear: both;
 }
 
+#app {
+    min-height: 500px;
+    padding-bottom: 50px;
+}
+
 .logo {
 
 }
@@ -135,4 +140,63 @@ nav {
     width: 65%;
     text-align: center;
     height: 100%;
+}
+
+
+/* Image */
+
+.gallery-image.column:hover {
+    cursor: pointer;
+    background: rgba(0,0,0, .1);
+}
+
+/* Gallery */
+
+.caption {
+    font-size: 11px;
+    text-align: center;
+    font-weight: bold; 
+}
+
+.sk-gallery-lightbox {
+    float: left;
+}
+
+.lightbox-caption {
+    color: white;
+    clear: both;
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    font-size: 0.75em;
+}
+
+.arrow {
+    height: 85%;
+    float: left;
+    width: 25%;
+}
+
+.arrow:hover {
+    cursor: pointer;
+}
+
+.arrow > i {
+    margin-top: 60%;
+    font-size: 1.25em;
+    color: white;
+}
+
+.arrow:hover > i {
+    color: black;
+}
+
+.arrow.right > i {
+    float: right;
+    margin-right: 15px;
+}
+
+.arrow.left > i {
+    float: left;
+    margin-left: 15px;
 }

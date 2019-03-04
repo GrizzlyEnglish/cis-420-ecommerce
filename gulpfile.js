@@ -2,15 +2,18 @@ var gulp = require('gulp');
 var del = require('del');
 var exec = require('child_process').exec;
 var sass = require('gulp-sass');
+var fs = require('fs');
 
 sass.compiler = require('node-sass');
 
 const assets = {
     "scripts": {
-        "vue": "dist/vue.js"
+        "vue": "dist/vue.js",
+        "vue-image-lightbox": "dist/vue-image-lightbox.min.js"
     },
     "styles": {
-        "bulma": "bulma.sass"
+        "bulma": "bulma.sass",
+        "vue-image-lightbox": "dist/vue-image-lightbox.min.css"
     },
     "fonts": {}
 };
@@ -28,7 +31,13 @@ gulp.task("dist_lib", async function() {
             if (assetType === 'styles') {
                 source = source.pipe(sass().on('error', sass.logError));   
             }
-            source.pipe(gulp.dest("public/" + assetType));
+            var path = "public/" + assetType; 
+            fs.access(path, fs.constants.F_OK, (err) => {
+                console.log(`${err ? 'does not exist' : 'exists'}`);
+                if (!err) {
+                    source.pipe(gulp.dest(path));
+                }
+            });
         }
     }
 });
@@ -39,4 +48,4 @@ gulp.task('node-server', function() {
     server.stderr.pipe(process.stderr);
 });
 
-gulp.task('start-server', gulp.series('clean', 'dist_lib', 'node-server'));
+gulp.task('start-server', gulp.series('dist_lib', 'node-server'));

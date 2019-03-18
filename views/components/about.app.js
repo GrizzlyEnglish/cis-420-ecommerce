@@ -1,3 +1,3 @@
-Vue.component('sk-order', {
-    template: '<h1>Hello, I am the about page</h1>'
+Vue.component('sk-about', {
+    template: '<h3>Hello, I am the about page</h3>'
 });

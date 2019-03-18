@@ -3,7 +3,7 @@ Vue.component('sk-index', {
     
         <div class="">
 
-            <div class="container">
+            <div class="gallery-short-links">
                 <!-- Top level links -->
                 <section class="tile is-ancestor">
                     <sk-index-tile tile-classes="is-vertical is-7" href="order"

@@ -4,31 +4,69 @@ section {
 }
 
 header {
-    padding-top: 25px;
+    height: 300px;
     padding-bottom: 25px;
+}
+
+p, button {
+    font-family: 'Lora', serif;
 }
 
 a {
     color: #eb2c69 !important;
+    font-family: 'Hind', sans-serif;
 }
 
 nav {
     clear: both;
 }
 
-#app {
-    min-height: 500px;
-    padding-bottom: 50px;
+#shopping_cart_total {
+    margin-left: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.nameLogo {
+    position: absolute;
+    /* text-align: center; */
+    width: Calc(50% - 123px);
+    /* top: 3rem; */
+    font-size: 3.5rem;
+    font-weight: bold;
+    font-family: 'Srisakdi', cursive;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: #eb2c69;
+    z-index: 100;
+}
+
+.nameLogo span {
+    display: block;
+}
+
+.navbar-menu {
+    border-bottom: 2px solid #eb2c69;
 }
 
 .logo {
-
+    position: absolute;
+    left: Calc(50% - 123px);
 }
 
 .logo figure {
-    width: 128px;
-    height: 128px;
+    width: 256px;
+    height: 256px;
     margin: 0 auto;
+}
+
+.logo figure img {
+    border-radius: 100px; 
+}
+
+.navContainer {
+    position: absolute;
+    width: 100%;
+    top: 160px;
 }
 
 .social-links {
@@ -46,7 +84,19 @@ nav {
     background-color: #fafafa;
 }
 
+.contentBody {
+    min-height: 500px;
+}
+
+.footer {
+    clear: both;
+}
+
 /* Index scope */
+.gallery-short-links {
+    padding: 0 100px;
+}
+
 .index-tile.has-link:hover {
     cursor: pointer;
 }
@@ -147,10 +197,14 @@ nav {
 
 .gallery-image.column:hover {
     cursor: pointer;
-    background: rgba(0,0,0, .1);
+    background: rgba(0,0,0, .1y);
 }
 
 /* Gallery */
+
+.sk-gallery {
+    margin: 50px;
+}
 
 .caption {
     font-size: 11px;
@@ -199,4 +253,28 @@ nav {
 .arrow.left > i {
     float: left;
     margin-left: 15px;
+}
+
+/* Order */
+
+.sk-order > section {
+    margin: 50px 5em;
+}
+
+.product-description {
+    min-height: 70%;
+}
+
+.product-button {
+    /* float: right; */
+}
+
+.custom-price {
+    margin-left: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.sk-customize {
+    margin-bottom: 50px; 
 }

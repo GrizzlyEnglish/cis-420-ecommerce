@@ -7,70 +7,83 @@
     <script type="text/javascript" src="/scripts/vue.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Hind|Lora|Srisakdi" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="container">
             <div class="logo">
                 <figure class="">
-                    <img src="https://bulma.io/images/placeholders/256x256.png" />
+                    <img src="/imgs/logo.jpg" />
                 </figure>
             </div>
-            <div class="social-links">
-                <a>
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a>
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a>
-                    <i class="fab fa-pinterest"></i>
-                </a>
-                <a>
-                    <i class="far fa-envelope"></i>
-                </a>
+            <div class="nameLogo">
+                <span>Sweet</span>
+                <span>Karoline</span>
+                <span>Cakes</span>
             </div>
-
-            <nav class="navbar" role="navigation" aria-label="main navigation">
-                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-                    data-target="navbar">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
-                <div id="navbar" class="navbar-menu">
-                    <div class="navbar-end">
-                        <a class="navbar-item" href="/">
-                            <span>Home</span>
-                        </a>
-                        
-                        <a class="navbar-item" href="/gallery">
-                            <span>Gallery</span>
-                        </a>
-                        
-                        <a class="navbar-item" href="/pricing">
-                            <span>Pricing</span>
-                        </a>
-
-                        <a class="navbar-item" href="/orders">
-                            <span>Orders</span>
-                        </a>
-                        
-                        <a class="navbar-item" href="/contact">
-                            <span>Contact</span>
-                        </a>
-                        
-                        <a class="navbar-item" href="/about">
-                            <span>About</span>
-                        </a>
-                    </div>
+            <div class="navContainer">
+                <div class="social-links">
+                    <a>
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a>
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a>
+                        <i class="fab fa-pinterest"></i>
+                    </a>
+                    <a>
+                        <i class="far fa-envelope"></i>
+                    </a>
                 </div>
-            </nav>
+    
+                <nav class="navbar" role="navigation" aria-label="main navigation">
+                    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                        data-target="navbar">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                    <div id="navbar" class="navbar-menu">
+                        <div class="navbar-end">
+                            <a class="navbar-item" href="/">
+                                <span>Home</span>
+                            </a>
+                            
+                            <a class="navbar-item" href="/gallery">
+                                <span>Gallery</span>
+                            </a>
+                            
+                            <a class="navbar-item" href="/order">
+                                <span>Order</span>
+                            </a>
+                            
+                            <a class="navbar-item" href="/contact">
+                                <span>Contact</span>
+                            </a>
+                            
+                            <a class="navbar-item" href="/about">
+                                <span>About</span>
+                            </a>
+    
+                            <a class="navbar-item" href="/cart">
+                                <span>
+                                    <i class="fas fa-shopping-cart"></i>
+                                </span>
+                                <span id="shopping_cart_total">
+                                    $0.00
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <div id="app">
-        <!-- Component will be injected here based on route -->
+    <div class="contentBody container" id="app">
+        <!-- Component will be injected here based on route --> 
         <sk-index v-if="currentRoute == '/'"></sk-index>
         <sk-gallery v-if="currentRoute == '/gallery'"></sk-gallery>
         <sk-order v-if="currentRoute == '/order'"></sk-order>
@@ -80,7 +93,9 @@
 
     <footer class="footer">
         <div class="content has-text-centered">
-            <p><strong>Tuesday — Friday: 7:30am to 6pm <span>•</span> Saturday: 8am to 5pm <span>•</span> Sunday, Monday: Closed </strong></p>
+            <p>
+                <strong>Tuesday — Friday: 7:30am to 6pm <span>•</span> Saturday: 8am to 5pm <span>•</span> Sunday, Monday: Closed </strong>
+            </p>
             <i class="fab fa-facebook-square"></i>
             <a class="">Facebook</a>
             <i class="fab fa-instagram"></i>
@@ -93,9 +108,11 @@
     <script type="text/javascript" src="sk/components/index/index.banner.js"></script>
     <script type="text/javascript" src="sk/components/gallery/gallery.image.js"></script>
     <script type="text/javascript" src="sk/components/gallery/gallery.lightbox.js"></script>
+    <script type="text/javascript" src="sk/components/order/order.product.display.js"></script>
+    <script type="text/javascript" src="sk/components/order/order.product.customize.js"></script>
     <!-- Apps -->
     <script type="text/javascript" src="sk/components/index/index.app.js"></script>
-    <script type="text/javascript" src="sk/components/order.app.js"></script>
+    <script type="text/javascript" src="sk/components/order/order.app.js"></script>
     <script type="text/javascript" src="sk/components/gallery/gallery.app.js"></script>
     <script type="text/javascript" src="sk/components/contact.app.js"></script>
     <script type="text/javascript" src="sk/components/about.app.js"></script>

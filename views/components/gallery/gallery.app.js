@@ -41,7 +41,7 @@ Vue.component('sk-gallery', {
         }
     },
     template: `
-        <div class="sk-gallery container">
+        <div class="sk-gallery">
             <sk-gallery-lightbox :images="images" :index="currentIndex" :is-visible="showLightbox"></sk-gallery-lightbox>
             <div class="columns" v-for="(row, rowIndex) in rows">
                 <div class="gallery-image column is-one-fourth" v-for="(image, imageIndex) in row">

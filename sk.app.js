@@ -16,6 +16,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use('/scripts', express.static(path.join(__dirname, '/public/scripts')));
 app.use('/styles', express.static(path.join(__dirname, '/public/css')));
 app.use('/fonts', express.static(path.join(__dirname, '/public/fonts')));
+app.use('/imgs', express.static(path.join(__dirname, '/public/imgs')));
 
 // App assets
 app.use('/sk', express.static(path.join(__dirname, '/views')));
@@ -23,7 +24,7 @@ app.use('/sk-styles', express.static(path.join(__dirname, '/styles')));
 
 // Route for handling the data
 app.get('/data', function (req, res) {
-    res.send('TODO: 404 page');
+    res.status(404).send('TODO: 404 page');
 });
 
 //Base routes
@@ -31,6 +32,7 @@ app.get('/', layout);
 app.get('/gallery', layout);
 app.get('/order', layout);
 app.get('/contact', layout);
+app.get('/pricing', layout);
 
 function layout(req, res) {
     console.log("Sending layout");
@@ -39,8 +41,8 @@ function layout(req, res) {
 
 //404 Non defined routes
 app.get('*', function(req, res){
-    res.send('TODO: 404 page', 404);
-  });
+    res.status(404).send('TODO: 404 page');
+});
 
 
 // Start the server and listen for requests

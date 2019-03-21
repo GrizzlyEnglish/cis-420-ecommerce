@@ -10,6 +10,8 @@ Vue.component('sk-index', {
                         header="Order" dek="This will link to orders"></sk-index-tile>
                     <sk-index-tile tile-classes="is-vertical" href="gallery"
                         header="Gallery" dek="This will link to galleries"></sk-index-tile>
+                    <sk-index-tile tile-classes="is-vertical" href="contact"
+                        header="Contact" dek="This will link to contact"></sk-index-tile>
                 </section>
                 <section class="tile is-ancestor">
                     <sk-index-tile tile-classes="is-vertical" href="about"

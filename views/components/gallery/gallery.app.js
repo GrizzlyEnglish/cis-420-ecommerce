@@ -9,14 +9,7 @@ Vue.component('sk-gallery', {
         }
     },
     beforeMount: function () {
-        this.images = [];
-
-        for (var i = 0; i < 50; i++) {
-            this.images.push({
-                href: "https://bulma.io/images/placeholders/256x256.png",
-                caption: "This is image " + this.images.length
-            });
-        }
+        this.images = images;
 
         console.log(this.images.length);
         let row_count = Math.round(this.images.length / row_length) + 1;

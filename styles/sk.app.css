@@ -133,16 +133,22 @@ nav {
 }
 
 .index-tile .tile-content > div:not(:first-child) {
-    position: absolute;
-    bottom: 25px;
-    left: 25px;
-    right: 50px;
+    position: relative;
+    height: 100%;
  }
 
  .index-tile .tile-content > div:not(:first-child) > p{
     float: right;
     font-size: 0.725em;
     color: grey;
+    position: absolute;
+    bottom: 0;
+ }
+
+ .index-tile > .tile-block {
+    background-color: whitesmoke;
+    border-radius: 4px;
+    position: relative;
  }
 
 .sk-index-banner {

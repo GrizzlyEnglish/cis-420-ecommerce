@@ -33,6 +33,7 @@ app.get('/gallery', layout);
 app.get('/order', layout);
 app.get('/contact', layout);
 app.get('/pricing', layout);
+app.get('/blog', layout);
 
 function layout(req, res) {
     console.log("Sending layout");

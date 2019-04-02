@@ -6,6 +6,16 @@ Vue.component('sk-index-tile', {
         href: String,
         image: String
     },
+    data: function () {
+        return {
+            styleObject: {
+                'background-image': 'url(' + this.image + ')',
+                'background-size': 'cover',
+                'background-position': 'center',
+                'background-repeat': 'no-repeat'
+            }
+        }
+    },
     methods: {
         clickedTile: function () {
             window.location.href += this.href;
@@ -16,13 +26,8 @@ Vue.component('sk-index-tile', {
     
     <div class="index-tile tile" :class="[tileClasses, href != null ? 'has-link' : '']" v-on:click="clickedTile()">
         <div class="tile is-parent">
-            <article class="tile is-child notification">
-                <div class="tile-content" style="
-                    background-image: url('https://bulma.io/images/placeholders/800x480.png');
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    ">
+            <article class="tile is-child tile-block">
+                <div class="tile-content" v-bind:style="styleObject">
                     <div>
                         <h1 class="h1">
                             {{ header }}

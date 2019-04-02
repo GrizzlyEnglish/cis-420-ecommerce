@@ -63,8 +63,8 @@
                                 <span>Contact</span>
                             </a>
                             
-                            <a class="navbar-item" href="/about">
-                                <span>About</span>
+                            <a class="navbar-item" href="/blog">
+                                <span>Blog</span>
                             </a>
     
                             <a class="navbar-item" href="/cart">
@@ -88,7 +88,7 @@
         <sk-gallery v-if="currentRoute == '/gallery'"></sk-gallery>
         <sk-order v-if="currentRoute == '/order'"></sk-order>
         <sk-contact v-if="currentRoute == '/contact'"></sk-contact>
-        <sk-about v-if="currentRoute == '/about'"></sk-about>
+        <sk-blog v-if="currentRoute == '/blog'"></sk-blog>
     </div>
 
     <footer class="footer">
@@ -103,6 +103,46 @@
         </div>
     </footer>
     <!-- Import component scripts here -->
+    <script>
+        const images = [
+            {
+                href: "/imgs/1.jpg",
+                caption: 'Birthday cake for Helen Vitiello Haverstick\'s son, Jack.'
+            },
+            {
+                href: "/imgs/2.jpg",
+                caption: 'Birthday cake for Makenzi Lynne Cooley'
+            },
+            {
+                href: "/imgs/3.jpg",
+                caption: 'Birthday cake for Masson Gogel Stephannie Gogel'
+            },
+            {
+                href: "/imgs/4.jpg",
+                caption: 'Birthday Cake for Scott Gogel\'s mom'
+            },
+            {
+                href: "/imgs/5.jpg",
+                caption: 'Birthday cake for Emmett Gogel Stephannie Gogel'
+            },
+            {
+                href: "/imgs/6.jpg",
+                caption: 'Birthday cake for Katie McKay'
+            },
+            {
+                href: "/imgs/7.jpg",
+                caption: 'Birthday Cake for Tenley Schott Tara Schott'
+            },
+            {
+                href: "/imgs/8.jpg",
+                caption: 'Birthday cake for Helen Vitiello Haverstick\'s son, Jack.'
+            },
+            {
+                href: "/imgs/9.jpg",
+                caption: 'Birthday cake for Taylor, Lisa Lisa Simpson Neff\'s daughter'
+            }
+        ];
+    </script>
     <!-- Components -->
     <script type="text/javascript" src="sk/components/index/index.tile.js"></script>
     <script type="text/javascript" src="sk/components/index/index.banner.js"></script>
@@ -115,12 +155,13 @@
     <script type="text/javascript" src="sk/components/order/order.app.js"></script>
     <script type="text/javascript" src="sk/components/gallery/gallery.app.js"></script>
     <script type="text/javascript" src="sk/components/contact/contact.app.js"></script>
-    <script type="text/javascript" src="sk/components/about.app.js"></script>
+    <script type="text/javascript" src="sk/components/blog.app.js"></script>
 
     <!-- Import the app last so it has all the components -->
     <script type="text/javascript" src="sk/components/app.js"></script>
 
     <script>
+
         document.addEventListener('DOMContentLoaded', () => {
             // Get all "navbar-burger" elements
             const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);

@@ -34,6 +34,8 @@ app.get('/order', layout);
 app.get('/contact', layout);
 app.get('/pricing', layout);
 app.get('/blog', layout);
+app.get('/cart', layout);
+app.get('/blog/:slug', layout);
 
 function layout(req, res) {
     console.log("Sending layout");

@@ -4,17 +4,23 @@ Vue.component('sk-product-display', {
     },
     data: function () {
         return {
-            productLines: []
+            productLines: [],
+            quantity: 1
         }
     },
     methods: {
         addProduct: function () {
             this.$emit('clickedProduct', this.product);
         },
+        addQuantity: function (diff) {
+            this.quantity += diff;
+        },
         addToCart: function () {
             this.$emit('addToCart', {
-                total: this.product.basePrice,
-                name: this.product.name
+                total: this.product.basePrice * this.quantity,
+                name: this.product.name,
+                image: this.product.image,
+                quantity: this.quantity
             });
         }
     },
@@ -33,9 +39,30 @@ Vue.component('sk-product-display', {
                     <button class="button is-primary product-button" v-on:click="addProduct" v-if="product.options !== undefined">
                         Add & Customize
                     </button>
-                    <button class="button is-primary product-button" v-on:click="addToCart" v-if="product.options === undefined">
-                        Add To Cart
-                    </button>
+                    <div class="columns is-multiline" v-if="product.options === undefined">
+                        <div class="column is-12">
+                            <div class="columns">
+                                <div class="column is-2">
+                                    <button class="button is-secondary" v-on:click="addQuantity(-1)">-</button>
+                                </div>
+                                <div class="column is-3 has-text-centered">
+                                    <label class="customizable quantity"> {{quantity}}</label>
+                                </div>
+                                <div class="column is-2">
+                                    <button class="button is-secondary" v-on:click="addQuantity(1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-12">
+                            <div class="columns">
+                                <div class="column is-7">
+                                    <button class="button is-primary product-button customizable" v-on:click="addToCart">
+                                        Add To Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

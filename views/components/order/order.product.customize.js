@@ -131,7 +131,7 @@ Vue.component('sk-product-customize', {
                     <button class="button is-danger" v-on:click="addToCart"> Add To Cart </button>
                 </div>
                 <div class="column is-6">
-                    <a href="/cart" class="button is-primary is-pulled-right" v-on:click="goToCart"> Go To Cart </button>
+                    <a href="/cart" class="button is-primary is-pulled-right" v-on:click="goToCart"> Go To Cart </a>
                 </div>
             </div>
         </div>

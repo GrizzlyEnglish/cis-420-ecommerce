@@ -17,6 +17,10 @@ p, button {
     font-family: 'Lora', serif;
 }
 
+p {
+  margin-bottom: 20px !important;
+}
+
 a {
     color: #24ABA4 !important;
     font-family: 'Hind', sans-serif;
@@ -602,6 +606,21 @@ figure.product {
   margin-right: 10px;
 }
 
-a.button {
+a.is-primary {
   color: white !important;
+}
+
+.blog-post {
+  max-height: 150px;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+.blog-post:hover {
+  cursor: pointer;
+  background: rgba(0,0,0, .1);
+}
+
+.blog-post .column {
+  overflow: hidden;
 }

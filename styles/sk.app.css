@@ -1,10 +1,15 @@
+/* Main color 1 #24ABA4 */
+/* Accent 1 #FF4365 */
+/* Main color 2 #030301 */
+/* Accent 2 #FFFFF3 */
+
 section {
     margin-top: 15px;
     margin-bottom: 15px;
 }
 
 header {
-    height: 300px;
+    height: 180px;
     padding-bottom: 25px;
 }
 
@@ -13,7 +18,7 @@ p, button {
 }
 
 a {
-    color: #eb2c69 !important;
+    color: #24ABA4 !important;
     font-family: 'Hind', sans-serif;
 }
 
@@ -30,13 +35,15 @@ nav {
 .nameLogo {
     position: absolute;
     /* text-align: center; */
-    width: Calc(50% - 123px);
+    /* width: Calc(50% - 123px); */
+    width: 100%;
+    text-align: center;
     /* top: 3rem; */
     font-size: 3.5rem;
     font-weight: bold;
     font-family: 'Srisakdi', cursive;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    color: #eb2c69;
+    color: #24ABA4;
     z-index: 100;
 }
 
@@ -45,7 +52,12 @@ nav {
 }
 
 .navbar-menu {
-    border-bottom: 2px solid #eb2c69;
+    border-bottom: 2px solid #FF4365;
+}
+
+.navbar-item:hover {
+  color: #FFFFF3 !important;
+  background: #FF4365 !important;
 }
 
 .logo {
@@ -66,7 +78,7 @@ nav {
 .navContainer {
     position: absolute;
     width: 100%;
-    top: 160px;
+    top: 100px;
 }
 
 .social-links {
@@ -78,18 +90,23 @@ nav {
     font-size: 1.125em;
     /* margin: 0 15px; */
     padding: 15px;
+    color: #FF4365 !important;
 }
 
 .social-links a:hover {
-    background-color: #fafafa;
+    color: #24ABA4 !important;
+    /* background: #24ABA4 !important; */
 }
 
 .contentBody {
     min-height: 500px;
+    padding: 50px 0;
+    background: white; 
 }
 
 .footer {
     clear: both;
+    margin-top: 50px;
 }
 
 /* Index scope */
@@ -112,24 +129,25 @@ nav {
 
 .index-tile .tile-content > div:first-child > h1 {
     position: relative;
+    color: #FFFFF3;
     font-size: 1.75rem;
-    color: white;
     z-index: 15;
     padding-top: 5px; 
     text-align: center;
     min-width: 100px;
+    margin-top: 20px;
 }
 
-.index-tile .tile-content > div:first-child:after { 
+.index-tile .tile-content > div:first-child:before { 
     content: " ";
     position: absolute;
     width: 100px;
     height: 100px;
-    background: #eb2c69; 
+    background: #24ABA4; 
     -moz-border-radius: 70px; 
     -webkit-border-radius: 70px; 
     border-radius: 70px;
-    top: 0;
+    /* top: 30px; */
 }
 
 .index-tile .tile-content > div:not(:first-child) {
@@ -137,12 +155,14 @@ nav {
     height: 100%;
  }
 
- .index-tile .tile-content > div:not(:first-child) > p{
+ .index-tile .tile-content > div:not(:first-child) > p {
     float: right;
-    font-size: 0.725em;
-    color: grey;
+    font-size: 0.525em;
+    color: white;
     position: absolute;
     bottom: 0;
+    margin-left: 5px;
+    text-transform: uppercase;
  }
 
  .index-tile > .tile-block {
@@ -152,7 +172,7 @@ nav {
  }
 
 .sk-index-banner {
-    margin: 50px 0;
+    margin: 100px 0;
     height: 256px;
     float: left;
     width: 100%;
@@ -164,7 +184,7 @@ nav {
     width: 256px;
     height: 256px;
     z-index: 5;
-    margin-top: 25px;
+    margin-top: -35px;
     margin-left: 5%;
 }
 
@@ -209,7 +229,7 @@ nav {
 /* Gallery */
 
 .sk-gallery {
-    margin: 50px;
+    /* margin: 0 50px; */
 }
 
 .caption {
@@ -556,3 +576,32 @@ nav {
   }
 }
 
+button.customizable {
+  width: 100%;
+}
+
+.customizable.description {
+  text-align: center;
+  font-size: 0.725em;
+}
+
+.customizable.quantity {
+  margin-top: 5px;
+    position: relative;
+    display: block;
+}
+
+figure.product {
+  height: 270px;
+  display: flex;
+  align-items: center; /* horizontal */
+  justify-content: center; /* vertical */
+}
+
+.space {
+  margin-right: 10px;
+}
+
+a.button {
+  color: white !important;
+}

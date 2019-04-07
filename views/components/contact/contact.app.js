@@ -51,12 +51,12 @@ Vue.component('sk-contact', {
 
 <form class="sk-contact" @submit.prevent="submit">
 
-  <div class="error-message">
-    <p v-show="!email.valid">Oh, please enter a valid email address.</p>
+  <div class="error-message" v-show="!email.valid">
+    <p>Oh, please enter a valid email address.</p>
   </div>
 
   <fieldset>
-    <legend>Contact</legend>
+    <legend>Contact Sweet Karoline Cakes</legend>
     <div>
       <label class="label" for="name">Full Name</label>
       <input type="text" name="name" id="name" required="" v-model="name">

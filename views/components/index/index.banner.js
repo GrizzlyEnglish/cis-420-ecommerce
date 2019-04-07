@@ -7,7 +7,7 @@ Vue.component('sk-index-banner', {
     
     <section class="sk-index-banner">
         <div class="image-container">
-            <figure class="image is-1by1">
+            <figure class="image">
                 <img v-bind:src="imageHref" />
             </figure>
         </div>

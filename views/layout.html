@@ -18,9 +18,7 @@
                 </figure>
             </div>
             <div class="nameLogo">
-                <span>Sweet</span>
-                <span>Karoline</span>
-                <span>Cakes</span>
+                <span>Sweet Karoline Cakes</span>
             </div>
             <div class="navContainer">
                 <div class="social-links">
@@ -86,7 +84,7 @@
         <!-- Component will be injected here based on route --> 
         <sk-index v-if="currentRoute == '/'"></sk-index>
         <sk-gallery v-if="currentRoute == '/gallery'"></sk-gallery>
-        <sk-order v-if="currentRoute == '/order'"></sk-order>
+        <sk-order v-if="currentRoute == '/order'" @add-to-cart="addToCart"></sk-order>
         <sk-contact v-if="currentRoute == '/contact'"></sk-contact>
         <sk-blog v-if="currentRoute == '/blog'"></sk-blog>
     </div>
@@ -104,6 +102,205 @@
     </footer>
     <!-- Import component scripts here -->
     <script>
+        function toCurrency(price, ignoreDiff = false) {
+            var diff = price > 0 ? '+' : '-';
+            var currency = '$' + price.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            if (ignoreDiff) return currency;
+            return diff + currency;
+        }
+        var shopping_cart = [];
+        const products = [
+            {
+                "name": "Cake",
+                "description": "Description of cakes",
+                "basePrice": 15,
+                "image": {
+                    "src": "/imgs/cake.jpg",
+                    "caption": ""
+                },
+                "options": [
+                    {
+                        "name": "Size",
+                        "mutuallyExclusive": true,
+                        "values": [
+                            { "name": "6\"", "priceAdjustment": 0, "selected": true, "description": "Perfect for 12 people"},
+                            { "name": "6\" Double Layer\"", "priceAdjustment": 10.00, "selected": false, "description": "Extra Cake Layer!"},
+                            { "name": "8\"", "priceAdjustment": 5.00, "selected": false, "description": "Perfect for 20-25 people"},
+                            { "name": "10\"", "priceAdjustment": 10.00, "selected": false, "description": "Perfect for 28-35 people"},
+                            { "name": "Quarter Sheet", "priceAdjustment": 20.00, "selected": false, "description": "Perfect for 36 people"},
+                            { "name": "Half Sheet", "priceAdjustment": 35.00, "selected": false, "description": "Perfect for 54 people"},
+                            { "name": "Full Sheet", "priceAdjustment": 55.00, "selected": false, "description": "Perfect for 72 people"},
+                        ]
+                    },
+                    {
+                        "name": "Flavoring",
+                        "mutuallyExclusive": true,
+                        "values": [
+                            { "name": "French Vanilla", "priceAdjustment": 0, "selected": true},
+                            { "name": "Marble", "priceAdjustment": 0, "selected": false},
+                            { "name": "Chocolate", "priceAdjustment": 0, "selected": false},
+                            { "name": "Strawberry", "priceAdjustment": 0, "selected": false},
+                            { "name": "Almond", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Lemon", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Amaretto", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Pancake", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Carrot", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Pina Colada", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Choclate Chip", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Pineapple", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Coconut", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Raspberry", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Cookie Dough", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Red Velvet", "priceAdjustment": 10.00, "selected": false},
+                        ]
+                    },
+                    {
+                        "name": "Frosting",
+                        "mutuallyExclusive": true,
+                        "values": [
+                            { "name": "Vanilla Buttercream", "priceAdjustment": 0.00, "selected": true},
+                            { "name": "Brown Sugar Buttercream", "priceAdjustment": 5.00, "selected": false},
+                            { "name": "Decorator Icing", "priceAdjustment": 5.00, "selected": false, "description": "Made with Sunshine Flavoring"},
+                            { "name": "Marshmellow Buttercream", "priceAdjustment": 5.00, "selected": false},
+                            { "name": "Chocloate Buttercream", "priceAdjustment": 5.00, "selected": false, "description": "Made with real butter"},
+                            { "name": "Lemon Cream Cheese", "priceAdjustment": 5.00, "selected": false}
+                        ]
+                    },
+                    {
+                        "name": "Fillings",
+                        "mutuallyExclusive": true,
+                        "values": [
+                            { "name": "Salted Caramel", "priceAdjustment": 0.00, "selected": true},
+                            { "name": "Marshmellow", "priceAdjustment": 5.00, "selected": false},
+                            { "name": "Fruit Perserves", "priceAdjustment": 5.00, "selected": false},
+                            { "name": "Peanut Butter Buttercream", "priceAdjustment": 5.00, "selected": false},
+                            { "name": "Lemon Curd", "priceAdjustment": 5.00, "selected": false},
+                            { "name": "Cream Cheese", "priceAdjustment": 5.00, "selected": false}
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Cupcake",
+                "description": "Description of cupcakes",
+                "basePrice": 1.00,
+                "image": {
+                    "src": "/imgs/cupcake.jpg",
+                    "caption": ""
+                },
+                "options": [
+                    {
+                        "name": "Size",
+                        "mutuallyExclusive": true,
+                        "values": [
+                            { "name": "Basic", "priceAdjustment": 0, "selected": true},
+                            { "name": "Premium", "priceAdjustment": 0.25, "selected": false},
+                            { "name": "Large Basic", "priceAdjustment": 0.50, "selected": false},
+                            { "name": "Large Premium", "priceAdjustment": 1.00, "selected": false},
+                            { "name": "Jumbo", "priceAdjustment": 1.50, "selected": false}
+                        ]
+                    },
+                    {
+                        "name": "Flavoring",
+                        "mutuallyExclusive": true,
+                        "values": [
+                            { "name": "French Vanilla", "priceAdjustment": 0, "selected": true},
+                            { "name": "Marble", "priceAdjustment": 0, "selected": false},
+                            { "name": "Chocolate", "priceAdjustment": 0, "selected": false},
+                            { "name": "Strawberry", "priceAdjustment": 0, "selected": false},
+                            { "name": "Almond", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Lemon", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Amaretto", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Pancake", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Carrot", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Pina Colada", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Choclate Chip", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Pineapple", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Coconut", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Raspberry", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Cookie Dough", "priceAdjustment": 10.00, "selected": false},
+                            { "name": "Red Velvet", "priceAdjustment": 10.00, "selected": false},
+                        ]
+                    },
+                    {
+                        "name": "Frosting",
+                        "mutuallyExclusive": true,
+                        "values": [
+                            { "name": "Vanilla Buttercream", "priceAdjustment": 0.00, "selected": true},
+                            { "name": "Brown Sugar Buttercream", "priceAdjustment": 5.00, "selected": false},
+                            { "name": "Decorator Icing", "priceAdjustment": 5.00, "selected": false, "description": "Made with Sunshine Flavoring"},
+                            { "name": "Marshmellow Buttercream", "priceAdjustment": 5.00, "selected": false},
+                            { "name": "Chocloate Buttercream", "priceAdjustment": 5.00, "selected": false, "description": "Made with real butter"},
+                            { "name": "Lemon Cream Cheese", "priceAdjustment": 5.00, "selected": false}
+                        ]
+                    },
+                    {
+                        "name": "Fillings",
+                        "mutuallyExclusive": true,
+                        "values": [
+                            { "name": "Salted Caramel", "priceAdjustment": 0.00, "selected": true},
+                            { "name": "Marshmellow", "priceAdjustment": 5.00, "selected": false},
+                            { "name": "Fruit Perserves", "priceAdjustment": 5.00, "selected": false},
+                            { "name": "Peanut Butter Buttercream", "priceAdjustment": 5.00, "selected": false},
+                            { "name": "Lemon Curd", "priceAdjustment": 5.00, "selected": false},
+                            { "name": "Cream Cheese", "priceAdjustment": 5.00, "selected": false}
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Cake Pops",
+                "description": "Description of cake pops",
+                "basePrice": 1.50,
+                "image": {
+                    "src": "/imgs/cake_pops.jpg",
+                    "caption": ""
+                },
+                "options": [
+                    {
+                        "name": "Flavor",
+                        "mutuallyExclusive": true,
+                        "values": [
+                            { "name": "Vanilla", "priceAdjustment": 0.00, "selected": true},
+                            { "name": "Chocolate", "priceAdjustment": 5.00, "selected": false},
+                            { "name": "Strawberry", "priceAdjustment": 5.00, "selected": false},
+                            { "name": "Red Velvet", "priceAdjustment": 5.00, "selected": false},
+                            { "name": "Banana", "priceAdjustment": 5.00, "selected": false}
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "9 \" Pie",
+                "description": "Description of cake pops",
+                "basePrice": 20.00,
+                "image": {
+                    "src": "/imgs/pie.jpg",
+                    "caption": ""
+                },
+                "options": [
+                    {
+                        "name": "Flavor",
+                        "mutuallyExclusive": true,
+                        "values": [
+                            { "name": "Pumpkin", "priceAdjustment": 0.00, "selected": true},
+                            { "name": "Pecan", "priceAdjustment": 5.00, "selected": false},
+                            { "name": "Chocolate", "priceAdjustment": 5.00, "selected": false}
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Cookie Cake",
+                "description": "Description of cake pops",
+                "basePrice": 20.00,
+                "image": {
+                    "src": "/imgs/cookie_ckae.jpg",
+                    "caption": ""
+                }
+            }
+        ];
+
         const images = [
             {
                 href: "/imgs/1.jpg",
@@ -140,6 +337,30 @@
             {
                 href: "/imgs/9.jpg",
                 caption: 'Birthday cake for Taylor, Lisa Lisa Simpson Neff\'s daughter'
+            },
+            {
+                href: "/imgs/10.jpg",
+                caption: 'Bridal shower cupcake cake.'
+            },
+            {
+                href: "/imgs/11.jpg",
+                caption: 'Shower cake'
+            },
+            {
+                href: "/imgs/12.jpg",
+                caption: 'Bridal Shower cake for Abigail Elizabeth Chris Gardner'
+            },
+            {
+                href: "/imgs/13.jpg",
+                caption: 'Bridal shower cupcake dress for Beka Taylor...next is the wedding cake may 30th!!! 😁'
+            },
+            {
+                href: "/imgs/14.jpg",
+                caption: 'Vanilla Bridal shower cake topped with cookie n cream cake pops and chocolate and cookies N cream cupcakes...thanks for your order, Beth Wright Pendleton! I hope the party is a success! #sweetkarolinescakes'
+            },
+            {
+                href: "/imgs/15.jpg",
+                caption: 'Thank you for your wedding shower cake order, Hannah Hastings! Congrats to Abby and Aquila! #BecomingBock #sweetkarolinescakes'
             }
         ];
     </script>

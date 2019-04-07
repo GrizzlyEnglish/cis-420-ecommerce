@@ -18,7 +18,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node app",
+    "start": "node sk.app.js",
     "postinstall": "gulp start-server"
   },
   "author": "",

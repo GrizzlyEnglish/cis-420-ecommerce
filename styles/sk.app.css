@@ -624,3 +624,23 @@ a.is-primary {
 .blog-post .column {
   overflow: hidden;
 }
+
+.cart-card {
+  background: #24ABA4;
+  border: 1px solid rgb(11, 87, 83);
+  color: white;
+}
+
+.cart-card button {
+  background: #FF4365 !important;
+}
+
+.bordered {
+  border: 1px solid #e5e5e5;
+  margin-right: 10px !important;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}

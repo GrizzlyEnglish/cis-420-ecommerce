@@ -20,6 +20,12 @@ Vue.component('sk-contact', {
       submitted: false
     };
   },
+  mounted: function (){
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 38.2527, lng: -85.7585},
+      zoom: 8
+  });
+  },
   methods: {
     // submit form handler
     submit: function() {
@@ -47,8 +53,10 @@ Vue.component('sk-contact', {
     }
   },
     template: `
-    <div id="app">
+    <div class="columns">
 
+<div class="column is-6"><div id="map"></div></div>
+<div class="column is-6">
 <form class="sk-contact" @submit.prevent="submit">
 
   <div class="error-message" v-show="!email.valid">
@@ -79,7 +87,7 @@ Vue.component('sk-contact', {
     </div>
   </fieldset>
 </form>
-
+</div>
 
 </div>
 `

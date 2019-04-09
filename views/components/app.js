@@ -3,7 +3,7 @@ function setShoppingCart(product) {
     var current_price = Number.parseInt(elem.innerHTML.replace('$', ''));
     
     if (product != null) shopping_cart.push(product);
-    current_price += shopping_cart.reduce(function (accum, i) { return i.total + accum}, 0);
+    current_price += shopping_cart.reduce(function (accum, i) { return (i.basePrice * i.quantity) + accum}, 0);
     
     elem.innerHTML = toCurrency(current_price, true);
 };

@@ -55,11 +55,12 @@ Vue.component('sk-product-customize', {
             });
 
             this.$emit('addToCart', {
-                total: this.calcTotal(true, true),
+                basePrice: this.calcTotal(false, true),
                 name: this.product.name,
                 quantity: this.quantity,
                 options: options,
-                custom: this.customText
+                custom: this.customText,
+                image: this.product.image
             });
         }
     },
@@ -131,7 +132,7 @@ Vue.component('sk-product-customize', {
                     <button class="button is-danger" v-on:click="addToCart"> Add To Cart </button>
                 </div>
                 <div class="column is-6">
-                    <a href="/cart" class="button is-primary is-pulled-right" v-on:click="goToCart"> Go To Cart </a>
+                    <a href="/cart" class="button is-primary is-pulled-right"> Go To Cart </a>
                 </div>
             </div>
         </div>
